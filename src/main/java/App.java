@@ -41,6 +41,7 @@ public class App{
         }
         return all/(double)array.length;
     }
+    
 
     public static int[] collection(int[] array[]){
         int avarage=0;
@@ -55,6 +56,50 @@ public class App{
         return smallArr;
 
     }
+    
+    
+    //lab 3
+    public static String weather(int[][] arr){
+        int max = arr[0][0] ;
+        int min= arr[0][0];
+        HashSet<Integer> wetherCast = new HashSet<Integer>();
+
+        for (int[] ints : arr) {
+            for (int Intger : ints) {
+                if (Intger > max) {
+                    max = Intger;
+                }
+                if (Intger < min) {
+                    min = Intger;
+                }
+                wetherCast.add(Intger);
+            }
+        }
+        String neverShown = "";
+        for (int i = min; i < max; i++) {
+            if (!wetherCast.contains(i)){
+                neverShown+= ("nevershowed"+i);
+            }
+        }
+
+        System.out.println("max " + max);
+        System.out.println("min " + min);
+
+        return neverShown;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 
@@ -73,5 +118,8 @@ public class App{
                 {65, 56, 55, 52, 55, 62, 57}
         };
         System.out.println(Arrays.toString(collection(weeklyMonthTemperatures)));
+
+        System.out.println(weather(weeklyMonthTemperatures));
+
     }
 }
