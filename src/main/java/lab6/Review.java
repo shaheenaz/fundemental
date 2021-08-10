@@ -1,4 +1,5 @@
-public class Review {
+package lab6;
+public class Review<String> {
     private String body;
     private float numOfStars;
     private String author;
@@ -28,23 +29,17 @@ public class Review {
     }
 
     public Review(String author , String body , float numOfStars ){
+
+
+        if (numOfStars > 5){
+            this.numOfStars = 5;
+        }else if (numOfStars < 0){
+            this.numOfStars=0;
+        }else {
+            this.numOfStars=numOfStars;
+        }
         this.author = author;
         this.body = body;
-
-        if (numOfStars == 5){
-            this.numOfStars = 5;
-        }else if (numOfStars == 0){
-            this.numOfStars=0;
-        }else if (numOfStars == 1){
-            this.numOfStars=1;
-        }else if (numOfStars == 2){
-            this.numOfStars=2;
-        }else if (numOfStars == 3){
-            this.numOfStars=3;
-        }
-        else if (numOfStars == 4){
-            this.numOfStars=4;
-        }
 
     }
 
